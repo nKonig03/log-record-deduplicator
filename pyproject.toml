@@ -1,0 +1,14 @@
+[project]
+name = "log-record-deduplicator"
+version = "0.1.0"
+description = "A logging.Handler that drops repeated identical messages, emitting a count summary after a quiet period to suppress log storms."
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
