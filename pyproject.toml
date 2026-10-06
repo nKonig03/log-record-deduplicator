@@ -1,6 +1,6 @@
 [project]
 name = "log-record-deduplicator"
-version = "0.1.1"
+version = "0.1.2"
 description = "A logging.Handler that drops repeated identical messages, emitting a count summary after a quiet period to suppress log storms."
 requires-python = ">=3.10"
 dependencies = []
