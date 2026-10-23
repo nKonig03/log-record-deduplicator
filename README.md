@@ -37,3 +37,10 @@ Two records are considered identical when their formatted message, level number,
 ## The awkward edge
 
 The handler does not run a background thread. Summaries are produced only when a new record arrives, or when `flush()` / `tick()` is called. If your application goes quiet during a storm and never logs again, the summary will not appear until you flush. Wiring `flush()` into your shutdown path (or calling `tick()` from an event loop) is the caller's responsibility.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
